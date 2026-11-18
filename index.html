@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Siddhartha STEM College | Butwal-10</title>
+	<style>
+		:root {
+			--primary: #0f2942;
+			--secondary: #1e4d7b;
+			--accent: #d97706;
+			--accent-hover: #b45309;
+			--light-bg: #f4f7fa;
+			--white: #ffffff;
+			--text-dark: #1f2937;
+			--text-muted: #6b7280;
+			--border: #e5e7eb;
+		}
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			background-color: var(--light-bg);
+			color: var(--text-dark);
+			line-height: 1.6;
+		}
+
+		/* Navigation */
+		header {
+			background-color: var(--primary);
+			color: var(--white);
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+		}
+
+		.nav-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 1rem 1.5rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.logo {
+			font-size: 1.35rem;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+		}
+
+		.logo span {
+			color: var(--accent);
+			display: block;
+			font-size: 0.85rem;
+			font-weight: 400;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			gap: 1.5rem;
+		}
+
+		nav a {
+			color: var(--white);
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 0.95rem;
+			transition: color 0.3s;
+		}
+
+		nav a:hover {
+			color: var(--accent);
+		}
+
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+			color: var(--white);
+			padding: 4.5rem 1.5rem;
+			text-align: center;
+		}
+
+		.hero-content {
+			max-width: 850px;
+			margin: 0 auto;
+		}
+
+		.hero h1 {
+			font-size: 2.6rem;
+			margin-bottom: 1rem;
+			line-height: 1.2;
+		}
+
+		.hero p {
+			font-size: 1.15rem;
+			color: #e2e8f0;
+			margin-bottom: 2rem;
+		}
+
+		.badge {
+			display: inline-block;
+			background-color: var(--accent);
+			color: var(--white);
+			padding: 0.35rem 1rem;
+			border-radius: 20px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.btn {
+			display: inline-block;
+			background-color: var(--accent);
+			color: var(--white);
+			padding: 0.8rem 1.8rem;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: background 0.3s;
+			border: none;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: var(--accent-hover);
+		}
+
+		/* Main Container */
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3.5rem 1.5rem;
+		}
+
+		.section-title {
+			text-align: center;
+			margin-bottom: 2.5rem;
+		}
+
+		.section-title h2 {
+			font-size: 2rem;
+			color: var(--primary);
+			margin-bottom: 0.5rem;
+		}
+
+		.section-title p {
+			color: var(--text-muted);
+			max-width: 650px;
+			margin: 0 auto;
+		}
+
+		/* About & Vision */
+		.about-box {
+			background: var(--white);
+			padding: 2rem;
+			border-radius: 10px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			border-left: 5px solid var(--accent);
+			margin-bottom: 3rem;
+		}
+
+		.about-box h2 {
+			color: var(--primary);
+			margin-bottom: 0.5rem;
+		}
+
+		/* Academic Programs Grid */
+		.grid-3 {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.card {
+			background: var(--white);
+			padding: 1.75rem;
+			border-radius: 10px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			border-top: 4px solid var(--secondary);
+			transition: transform 0.2s;
+		}
+
+		.card:hover {
+			transform: translateY(-4px);
+		}
+
+		.card h3 {
+			color: var(--primary);
+			margin-bottom: 0.75rem;
+			font-size: 1.25rem;
+		}
+
+		.card p {
+			color: var(--text-muted);
+			font-size: 0.95rem;
+		}
+
+		/* Leadership Section */
+		.leadership-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+			gap: 2rem;
+		}
+
+		.leader-card {
+			background: var(--white);
+			border-radius: 10px;
+			padding: 2rem;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+			border: 1px solid var(--border);
+		}
+
+		.leader-header {
+			border-bottom: 2px solid var(--light-bg);
+			padding-bottom: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.leader-role {
+			color: var(--accent);
+			font-weight: 700;
+			font-size: 0.85rem;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+
+		.leader-card h3 {
+			font-size: 1.5rem;
+			color: var(--primary);
+			margin: 0.25rem 0;
+		}
+
+		.edu-origin {
+			display: inline-block;
+			background: #e0f2fe;
+			color: #0369a1;
+			padding: 0.25rem 0.75rem;
+			border-radius: 4px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			margin-top: 0.4rem;
+		}
+
+		.leader-desc {
+			font-size: 0.95rem;
+			color: var(--text-muted);
+		}
+
+		.degree-list {
+			list-style: none;
+			margin-top: 1rem;
+		}
+
+		.degree-list li {
+			padding: 0.4rem 0;
+			border-bottom: 1px dashed var(--border);
+			font-size: 0.95rem;
+			display: flex;
+			align-items: center;
+		}
+
+		.degree-list li:last-child {
+			border-bottom: none;
+		}
+
+		.degree-list li::before {
+			content: "🎓";
+			margin-right: 0.6rem;
+			font-size: 0.9rem;
+		}
+
+		/* Faculty Section */
+		.filter-controls {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
+
+		.search-input {
+			width: 100%;
+			max-width: 450px;
+			padding: 0.75rem 1rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 6px;
+			font-size: 1rem;
+		}
+
+		.search-input:focus {
+			outline: none;
+			border-color: var(--secondary);
+			box-shadow: 0 0 0 3px rgba(30, 77, 123, 0.15);
+		}
+
+		.dept-tabs {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0.5rem;
+		}
+
+		.tab-btn {
+			background: var(--white);
+			border: 1px solid var(--border);
+			padding: 0.5rem 1rem;
+			border-radius: 20px;
+			cursor: pointer;
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: var(--text-dark);
+			transition: all 0.2s;
+		}
+
+		.tab-btn:hover,
+		.tab-btn.active {
+			background: var(--primary);
+			color: var(--white);
+			border-color: var(--primary);
+		}
+
+		.faculty-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+			gap: 1.25rem;
+		}
+
+		.faculty-card {
+			background: var(--white);
+			padding: 1.25rem;
+			border-radius: 8px;
+			border: 1px solid var(--border);
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.faculty-dept {
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: var(--secondary);
+			margin-bottom: 0.3rem;
+		}
+
+		.faculty-name {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--primary);
+			margin-bottom: 0.25rem;
+		}
+
+		.faculty-qual {
+			font-size: 0.9rem;
+			color: var(--text-muted);
+			margin-bottom: 0.75rem;
+		}
+
+		.hod-badge {
+			display: inline-block;
+			background: #fef3c7;
+			color: #b45309;
+			font-size: 0.75rem;
+			font-weight: 700;
+			padding: 0.2rem 0.6rem;
+			border-radius: 4px;
+			align-self: flex-start;
+		}
+
+		.empty-msg {
+			grid-column: 1 / -1;
+			text-align: center;
+			color: var(--text-muted);
+			padding: 2rem;
+		}
+
+		/* Footer */
+		footer {
+			background-color: var(--primary);
+			color: #cbd5e1;
+			text-align: center;
+			padding: 2.5rem 1.5rem;
+			margin-top: 3rem;
+		}
+
+		footer h3 {
+			color: var(--white);
+			margin-bottom: 0.5rem;
+		}
+
+		footer p {
+			font-size: 0.9rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.copyright {
+			margin-top: 1rem;
+			font-size: 0.8rem;
+			color: #94a3b8;
+		}
+
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 2rem;
+			}
+
+			nav ul {
+				margin-top: 0.75rem;
+				gap: 1rem;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Header & Navigation -->
+	<header>
+		<div class="nav-container">
+			<div class="logo">
+				Siddhartha STEM College
+				<span>Butwal-10, Rupandehi, Nepal</span>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#programs">Programs</a></li>
+					<li><a href="#leadership">Leadership</a></li>
+					<li><a href="#faculty">Faculty</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<span class="badge">Butwal-10 • Center for STEM Excellence</span>
+			<h1>Siddhartha STEM College</h1>
+			<p>
+				Making Science, Technology, Engineering, and Mathematics easily accessible to every student in Butwal — from Primary School to Global Engineering Degrees.
+			</p>
+			<a href="#programs" class="btn">Explore Academic Streams</a>
+		</div>
+	</section>
+
+	<!-- About & Academic Programs Section -->
+	<section id="about" class="container">
+		<div class="about-box">
+			<h2>Our Mission & Vision</h2>
+			<p>
+				Founded in <strong>Butwal-10</strong> by <strong>Dr. Siddhartha Vishvakarma</strong> and <strong>Er. Resham Thapa</strong>, Siddhartha STEM College was established with a clear purpose: to make world-class STEM education easily accessible to local students in Butwal. We nurture young minds from foundational primary science all the way to specialized global engineering degrees under one roof.
+			</p>
+		</div>
+
+		<div id="programs" class="section-title">
+			<h2>Academic Programs & Streams</h2>
+			<p>
+				Comprehensive pathways covering every branch of Science, Technology, Engineering, and Mathematics.
+			</p>
+		</div>
+
+		<div class="grid-3">
+			<div class="card">
+				<h3>+2 Science (NEB)</h3>
+				<p>
+					Higher secondary education offering Physical and Biological groups with intensive laboratory work and entrance preparation.
+				</p>
+			</div>
+			<div class="card">
+				<h3>GCE A-Level Science</h3>
+				<p>
+					Internationally recognized Cambridge curriculum featuring Physics, Chemistry, Biology, Mathematics, and Computer Science.
+				</p>
+			</div>
+			<div class="card">
+				<h3>STEM Degrees</h3>
+				<p>
+					Undergraduate and advanced engineering programs across Civil, Mechanical, Electrical, Electronics and Chemical Engineering.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Leadership Section -->
+	<section id="leadership" class="container" style="padding-top: 0;">
+		<div class="section-title">
+			<h2>Institutional Leadership</h2>
+			<p>
+				Guided by visionary scholars and engineers dedicated to academic excellence in Butwal.
+			</p>
+		</div>
+
+		<div class="leadership-grid">
+			<div class="leader-card">
+				<div class="leader-header">
+					<div class="leader-role">
+						Founder & Principal
+					</div>
+					<h3>Dr. Siddhartha Vishvakarma</h3>
+					<span class="edu-origin">Kathmandu</span>
+				</div>
+				<p class="leader-desc">
+					Leading the institution with multidisciplinary expertise across mathematics, physics, and computer applications.
+				</p>
+				<ul class="degree-list">
+					<li>Ph.D. Mathematics</li>
+					<li>M.Sc. Mathematics</li>
+					<li>B.Sc. Mathematics</li>
+					<li>M.C.A.</li>
+					<li>B.C.A.</li>
+				</ul>
+			</div>
+
+			<div class="leader-card">
+				<div class="leader-header">
+					<div class="leader-role">
+						Vice Principal
+					</div>
+					<h3>Dr. Jatin Belbase</h3>
+					<span class="edu-origin"> Butwal</span>
+				</div>
+				<p class="leader-desc">
+					Driving academic operations and engineering innovation with deep roots in Butwal's educational community.
+				</p>
+				<ul class="degree-list">
+					<li>Ph.D. English</li>
+					<li>M.A. English</li>
+					<li>B.C.A.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Faculty Directory Section -->
+	<section id="faculty" class="container" style="padding-top: 0;">
+		<div class="section-title">
+			<h2>Departments & Faculty Directory</h2>
+			<p>
+				Select a department below to view its doctors, engineers, head of department, and educators.
+			</p>
+		</div>
+
+		<div class="filter-controls">
+			<input type="text" id="searchInput" class="search-input" placeholder="Search within selected department...">
+			<div class="dept-tabs" id="deptTabs">
+				<button class="tab-btn active" data-dept="Physics">Physics</button>
+				<button class="tab-btn" data-dept="Chemistry">Chemistry</button>
+				<button class="tab-btn" data-dept="Biology">Biology</button>
+				<button class="tab-btn" data-dept="Technology">Technology</button>
+				<button class="tab-btn" data-dept="Engineering">Engineering</button>
+				<button class="tab-btn" data-dept="Mathematics">Mathematics</button>
+				<button class="tab-btn" data-dept="Nepali">Nepali</button>
+				<button class="tab-btn" data-dept="English">English</button>
+			</div>
+		</div>
+
+		<div class="faculty-grid" id="facultyGrid"></div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<h3>Siddhartha STEM College</h3>
+		<p>
+			Butwal-10, Rupandehi, Lumbini Province, Nepal
+		</p>
+		<p>
+			+2 Science | A-Level Science | STEM Degrees
+		</p>
+		<p class="copyright">
+			&copy; 2026 Siddhartha STEM College. All Rights Reserved.
+		</p>
+	</footer>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const facultyData = [
+				// Physics Department
+				{
+					name: "Dr. Krishna Adhikari", qual: "Ph.D. Physics", dept: "Physics", hod: false
+				},
+				{
+					name: "Amrit Ghimire", qual: "M.Sc. Physics", dept: "Physics", hod: true
+				},
+				{
+					name: "Subhash Marasini", qual: "M.Sc. Physics", dept: "Physics", hod: false
+				},
+				{
+					name: "Deepak Banjade", qual: "M.Sc. Physics", dept: "Physics", hod: false
+				},
+				{
+					name: "Suraj Pandey", qual: "M.Sc. Physics", dept: "Physics", hod: false
+				},
+				{
+					name: "Prakash Pokhrel", qual: "M.Sc. Physics", dept: "Physics", hod: false
+				},
+
+				// Chemistry Department
+				{
+					name: "Dr. Amrit Khanal", qual: "Ph.D. Chemistry", dept: "Chemistry", hod: false
+				},
+				{
+					name: "Kabir Oli", qual: "M.Sc. Chemistry", dept: "Chemistry", hod: true
+				},
+				{
+					name: "Divas Nepal", qual: "M.Sc. Chemistry", dept: "Chemistry", hod: false
+				},
+				{
+					name: "Shiksha Bhattarai", qual: "M.Sc. Chemistry", dept: "Chemistry", hod: false
+				},
+				{
+					name: "Shraddha Patravansh", qual: "M.Sc. Chemistry", dept: "Chemistry", hod: false
+				},
+				{
+					name: "Neelkamal Kasaudhan", qual: "M.Sc. Chemistry", dept: "Chemistry", hod: false
+				},
+
+				// Biology Department
+				{
+					name: "Dr. Pratiksha Sharma", qual: "Ph.D. Botany", dept: "Biology", hod: false
+				},
+				{
+					name: "Dhiraj Kshetri", qual: "M.Sc. Botany", dept: "Biology", hod: true
+				},
+				{
+					name: "Dr. Archita Chaudhary", qual: "Ph.D. Zoology", dept: "Biology", hod: false
+				},
+				{
+					name: "Lakshman K.C.", qual: "M.Sc. Zoology", dept: "Biology", hod: false
+				},
+
+				// Technology Department
+				{
+					name: "Dr. Trishna Paudel", qual: "Ph.D. Computer Science", dept: "Technology", hod: false
+				},
+				{
+					name: "Arbind Dubey", qual: "M.C.A.", dept: "Technology", hod: true
+				},
+				{
+					name: "Arjun Khanal", qual: "B.Sc. CSIT", dept: "Technology", hod: false
+				},
+				{
+					name: "Kripa Khanal", qual: "B.I.T.", dept: "Technology", hod: false
+				},
+				{
+					name: "Rishi Khanal", qual: "B.I.M.", dept: "Technology", hod: false
+				},
+				{
+					name: "Narayan Paudel", qual: "B.C.A.", dept: "Technology", hod: false
+				},
+
+				// Engineering Department
+				{
+					name: "Er. Yug Thapa", qual: "M.E. Mechanical Engineering", dept: "Engineering", hod: false
+				},
+				{
+					name: "Er. Resham Thapa", qual: "M.E. Electrical Engineering", dept: "Engineering", hod: true
+				},
+				{
+					name: "Er. Sangam Neupane", qual: "M.E. Electronics Engineering", dept: "Engineering", hod: false
+				},
+				{
+					name: "Er. Md. Saif Ansari", qual: "M.E. Civil Engineering", dept: "Engineering", hod: false
+				},
+				{
+					name: "Er. Sakar Paudel", qual: "M.E. Nuclear Engineering", dept: "Engineering", hod: false
+				},
+				{
+					name: "Er. Samundra Banjade", qual: "M.E. Chemical Engineering", dept: "Engineering", hod: false
+				},
+				{
+					name: "Er. Sujan Pokhrel", qual: "M.E. Biomedical Engineering", dept: "Engineering", hod: false
+				},
+
+				// Mathematics Department
+				{
+					name: "Dr. Siddhartha Vishvakarma (Principal)", qual: "Ph.D. Mathematics", dept: "Mathematics", hod: false
+				},
+				{
+					name: "Vishnu Pandey", qual: "M.Sc. Mathematics", dept: "Mathematics", hod: true
+				},
+				{
+					name: "Santosh Bhattarai", qual: "M.A. Mathematics", dept: "Mathematics", hod: false
+				},
+				{
+					name: "Prashant Kafle", qual: "M.A. Mathematics", dept: "Mathematics", hod: false
+				},
+				{
+					name: "Santosh Tiwari", qual: "M.Ed. Mathematics", dept: "Mathematics", hod: false
+				},
+
+				// Nepali Department
+				{
+					name: "Dr. Samjhana Banjade", qual: "Ph.D. Nepali", dept: "Nepali", hod: false
+				},
+				{
+					name: "Gyaneshwar Acharya", qual: "M.Ed. Nepali", dept: "Nepali", hod: true
+				},
+				{
+					name: "Sadhana Gyawali", qual: "M.A. Nepali", dept: "Nepali", hod: false
+				},
+				{
+					name: "Nirdeshika Adhikari", qual: "M.A. Nepali", dept: "Nepali", hod: false
+				},
+				{
+					name: "Sandesh Basnet", qual: "M.A. Nepali", dept: "Nepali", hod: false
+				},
+				{
+					name: "Manish Panta", qual: "M.A. Nepali", dept: "Nepali", hod: false
+				},
+				{
+					name: "Neelam Tandan", qual: "M.A. Nepali", dept: "Nepali", hod: false
+				},
+
+				// English Department
+				{
+					name: "Dr. Jatin Belbase (Vice Principal)", qual: "Ph.D. English", dept: "English", hod: false
+				},
+				{
+					name: "Maniram Acharya", qual: "M.A. English", dept: "English", hod: true
+				},
+				{
+					name: "Mnaur Ali", qual: "M.A. English", dept: "English", hod: false
+				},
+				{
+					name: "Aarsiya Shreshtha", qual: "M.A. English", dept: "English", hod: false
+				},
+				{
+					name: "Mandira Shreshtha", qual: "M.A. English", dept: "English", hod: false
+				},
+				{
+				    name: "Niranjan Shreshtha", qual: "M.A. English", dept: "English", hod: false
+				},
+				{
+					name: "Nikita Rayamajhi", qual: "M.A. English", dept: "English", hod: false
+				}
+			];
+
+			const facultyGrid = document.getElementById("facultyGrid");
+			const searchInput = document.getElementById("searchInput");
+			const tabButtons = document.querySelectorAll(".tab-btn");
+
+			if (!facultyGrid || !searchInput || tabButtons.length === 0) {
+				return;
+			}
+
+			let activeDept = "Physics";
+
+			function renderFaculty() {
+				const rawQuery = searchInput.value.trim();
+				const query = rawQuery.toLowerCase();
+				facultyGrid.innerHTML = "";
+
+				const filtered = facultyData.filter((member) => {
+					const matchesDept = member.dept === activeDept;
+					const matchesSearch =
+					member.name.toLowerCase().includes(query) ||
+					member.qual.toLowerCase().includes(query);
+					return matchesDept && matchesSearch;
+				});
+
+				if (filtered.length === 0) {
+					const emptyMsg = document.createElement("p");
+					emptyMsg.className = "empty-msg";
+					emptyMsg.textContent = `No faculty members found in the ${activeDept} Department matching "${rawQuery}".`;
+					facultyGrid.appendChild(emptyMsg);
+					return;
+				}
+
+				filtered.forEach((member) => {
+					const card = document.createElement("div");
+					card.className = "faculty-card";
+
+					const infoWrapper = document.createElement("div");
+
+					const deptEl = document.createElement("div");
+					deptEl.className = "faculty-dept";
+					deptEl.textContent = `${member.dept} Department`;
+
+					const nameEl = document.createElement("div");
+					nameEl.className = "faculty-name";
+					nameEl.textContent = member.name;
+
+					const qualEl = document.createElement("div");
+					qualEl.className = "faculty-qual";
+					qualEl.textContent = member.qual;
+
+					infoWrapper.appendChild(deptEl);
+					infoWrapper.appendChild(nameEl);
+					infoWrapper.appendChild(qualEl);
+					card.appendChild(infoWrapper);
+
+					if (member.hod) {
+						const badgeEl = document.createElement("span");
+						badgeEl.className = "hod-badge";
+						badgeEl.textContent = "Head of Department (HOD)";
+						card.appendChild(badgeEl);
+					}
+
+					facultyGrid.appendChild(card);
+				});
+			}
+
+			tabButtons.forEach((btn) => {
+				btn.addEventListener("click", () => {
+					tabButtons.forEach((b) => b.classList.remove("active"));
+					btn.classList.add("active");
+					activeDept = btn.getAttribute("data-dept");
+					searchInput.value = "";
+					searchInput.placeholder = `Search within ${activeDept} Department...`;
+					renderFaculty();
+				});
+			});
+
+			searchInput.addEventListener("input",
+				renderFaculty);
+
+			// Set initial placeholder and render default department
+			searchInput.placeholder = `Search within ${activeDept} Department...`;
+			renderFaculty();
+		});
+	</script>
+</body>
+</html>
