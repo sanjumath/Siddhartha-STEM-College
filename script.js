@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "Er. Yug Thapa", qual: "M.E. Mechanical Engineering", dept: "Engineering", hod: false
         },
         {
-            name: "Er. Resham Thapa", qual: "M.E. Electrical Engineering", dept: "Engineering", hod: true
+            name: "Er. Resham Thapa (Co-founder)", qual: "M.E. Electrical Engineering", dept: "Engineering", hod: true
         },
         {
             name: "Er. Sangam Neupane", qual: "M.E. Electronics Engineering", dept: "Engineering", hod: false
